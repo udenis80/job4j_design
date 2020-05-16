@@ -3,11 +3,11 @@ package ru.job4j.it;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class BackwardArrayIt implements Iterator<Integer> {
+public class ArrayIt implements Iterator<Integer> {
     private final int[] data;
     private int point = 0;
 
-    public BackwardArrayIt(int[] data) {
+    public ArrayIt(int[] data) {
         this.data = data;
     }
 
@@ -19,8 +19,9 @@ public class BackwardArrayIt implements Iterator<Integer> {
     @Override
     public Integer next() {
         if (!hasNext()) {
+            System.out.println("next element is empty");
             throw new NoSuchElementException();
         }
-        return data[data.length - 1 - point++];
+        return data[point++];
     }
 }
